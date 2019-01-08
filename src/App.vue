@@ -2,43 +2,67 @@
   <div id="app">
     <div class="content">
       <div class="logo-container">
-        <a href="">
-          <img src="src/assets/images/logo.png" alt="">
+        <a href>
+          <img src="src/assets/images/logo.png" alt>
         </a>
         <nav>
-          <a href="">Up Coming</a>
-          <a href="">Now Playing</a>
-          <a href="">Top Rated</a>
+          <a href>Up Coming</a>
+          <a href>Now Playing</a>
+          <a href>Top Rated</a>
         </nav>
+      </div>
+    </div>
+    <div class="main-content">
+      <div v-for="movie in info" :key="movie.title">
+        <movie :movie="movie"></movie>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Movie from "./Movie.vue";
+const axios = require("axios");
+
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
 export default {
-  name: 'app',
-  data () {
+  components: {
+    movie: Movie
+  },
+  name: "app",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      info: null
+    };
+  },
+  mounted() {
+    axios
+      .get("/movie/upcoming", {
+        params: {
+          api_key: "b4fa962034248325aeb93bb096e247de"
+        }
+      })
+      .then(response => (this.info = response.data.results));
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin: 0;
 }
+
 body {
   margin: 0;
 }
-h1, h2 {
+
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -55,31 +79,34 @@ li {
 a {
   color: #42b983;
 }
+
 .logo-container {
-    display: flex;
-    img {
-      height: 80px;
+  display: flex;
+  img {
+    height: 80px;
+  }
+}
+
+.content {
+  background-color: #000;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 30px;
+    transition: color 0.4s linear;
+    &:hover {
+      color: #ed635d;
     }
   }
-  .content {
-    background-color: #000;
-  }
-  nav {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    a {
-      color: white;
-      font-weight: 500;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 0 30px;
-      transition: color .4s linear;
-      &:hover {
-        color: #ed635d;
-      }
-    }
-  }
+}
 </style>

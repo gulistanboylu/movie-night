@@ -44,7 +44,7 @@ export default {
 }
 
 .item {
-  background: #eaeaea;
+  background: #f0f0f0;
   display: flex;
   justify-content: center;
   height: auto;

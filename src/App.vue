@@ -12,9 +12,10 @@
         </nav>
       </div>
     </div>
-    <div class="main-content">
-      <div v-for="movie in info" :key="movie.title">
-        <movie :movie="movie"></movie>
+    <div class="app-container">
+      <h1>Up Coming Movies</h1>
+      <div class="container">
+        <movie v-for="movie in info" :key="movie.title" class="item" :movie="movie"></movie>
       </div>
     </div>
   </div>
@@ -59,6 +60,12 @@ export default {
 
 body {
   margin: 0;
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: 80em;
+  padding: 2em 0;
 }
 
 h1,

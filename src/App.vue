@@ -70,7 +70,7 @@ a {
     justify-content: flex-end;
     width: 100%;
     a {
-      color: white;
+      color: #ed635d;
       font-weight: 500;
       text-decoration: none;
       text-transform: uppercase;

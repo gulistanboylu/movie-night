@@ -3,15 +3,14 @@
     <div class="modal-backdrop">
       <div class="modal">
         <header class="modal-header">
-          <slot name="header">This is the default tile!</slot>
+          <slot name="header">This will be the Movie title</slot>
         </header>
         <section class="modal-body">
           <slot name="body">I'm the default body!</slot>
         </section>
         <footer class="modal-footer">
-          <slot name="footer">I'm the default footer!</slot>
+          <button type="button" class="btn-close" @click="close">Close</button>
         </footer>
-        <button type="button" class="btn-green" @click="close">Close me!</button>
       </div>
     </div>
   </transition>
@@ -28,7 +27,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -60,34 +59,32 @@ export default {
   border-bottom: 1px solid #eeeeee;
   text-transform: capitalize;
   font-weight: 600;
-  color: #000;
+  color: #2c3e50;
   justify-content: space-between;
+  h2 {
+    margin: 0;
+    font-weight: 600;
+  }
 }
 
 .modal-footer {
   border-top: 1px solid #eeeeee;
-  /* justify-content: flex-end; */
+  justify-content: flex-end;
 }
 
 .modal-body {
   position: relative;
   padding: 20px 10px;
+  .movie-detail-text {
+    padding: 0px 10px;
+    margin: 0;
+  }
 }
 
 .btn-close {
-  border: none;
-  font-size: 20px;
-  padding: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
-}
-
-.btn-green {
   color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
+  background: #ed635d;
+  border: 1px solid #ed635d;
   border-radius: 2px;
 }
 .modal-fade-enter,

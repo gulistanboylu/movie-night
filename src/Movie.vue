@@ -1,5 +1,3 @@
-
-import func from './vue-temp/vue-editor-bridge';
 <template>
   <div>
     <div>
@@ -10,7 +8,32 @@ import func from './vue-temp/vue-editor-bridge';
       <p>{{ truncate }}</p>
       <h4>{{this.movie.release_date}}</h4>
       <button type="button" class="btn" @click="showModal">More Info</button>
-      <modal v-show="isModalVisible" @close="closeModal"/>
+      <modal v-show="isModalVisible" @close="closeModal">
+        <div slot="header">
+          <h2>{{ movie.title}}</h2>
+        </div>
+        <div slot="body" class="movie-details">
+          <img :src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path">
+          <div class="movie-detail-text">
+            <p>
+              <strong>Overview:</strong>
+              {{ movie.overview}}
+            </p>
+            <p>
+              <strong>Popularity:</strong>
+              {{ movie.popularity}}
+            </p>
+            <p>
+              <strong>Release Date:</strong>
+              {{ movie.release_date}}
+            </p>
+            <p>
+              <strong>Language:</strong>
+              {{ movie.original_language }}
+            </p>
+          </div>
+        </div>
+      </modal>
     </div>
   </div>
 </template>
@@ -76,7 +99,9 @@ h1 {
 .movie-content {
   padding: 0 1.5em;
 }
-
+.movie-details {
+  display: flex;
+}
 h4 {
   color: #868686;
   margin: 2em 0;

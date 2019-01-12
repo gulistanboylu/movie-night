@@ -13,38 +13,22 @@
       </div>
     </div>
     <div class="app-container">
-      <h1>Up Coming Movies</h1>
-      <div class="container">
+      <upcoming></upcoming>
+      <!-- <div class="container">
         <movie v-for="movie in info" :key="movie.title" class="item" :movie="movie"></movie>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
-import Movie from "./Movie.vue";
-const axios = require("axios");
+import Upcoming from "./Upcoming.vue";
 
-axios.defaults.baseURL = "https://api.themoviedb.org/3";
 export default {
   components: {
-    movie: Movie
+    upcoming: Upcoming
   },
-  name: "app",
-  data() {
-    return {
-      info: null
-    };
-  },
-  mounted() {
-    axios
-      .get("/movie/upcoming", {
-        params: {
-          api_key: "b4fa962034248325aeb93bb096e247de"
-        }
-      })
-      .then(response => (this.info = response.data.results));
-  }
+  name: "app"
 };
 </script>
 

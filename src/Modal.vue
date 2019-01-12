@@ -81,12 +81,6 @@ export default {
   }
 }
 
-.btn-close {
-  color: white;
-  background: #ed635d;
-  border: 1px solid #ed635d;
-  border-radius: 2px;
-}
 .modal-fade-enter,
 .modal-fade-leave-active {
   opacity: 0;

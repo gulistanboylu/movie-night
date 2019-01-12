@@ -14,6 +14,7 @@
     </div>
     <div class="app-container">
       <upcoming></upcoming>
+      <toprated></toprated>
       <!-- <div class="container">
         <movie v-for="movie in info" :key="movie.title" class="item" :movie="movie"></movie>
       </div>-->
@@ -23,10 +24,12 @@
 
 <script>
 import Upcoming from "./Upcoming.vue";
+import Toprated from "./Toprated.vue";
 
 export default {
   components: {
-    upcoming: Upcoming
+    upcoming: Upcoming,
+    toprated: Toprated
   },
   name: "app"
 };

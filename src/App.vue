@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="content">
-      <div class="logo-container">
+    <div class="header">
+      <div class="logo">
         <a href>
           <img src="src/assets/images/logo.png" alt>
         </a>
@@ -72,14 +72,14 @@ a {
   color: #42b983;
 }
 
-.logo-container {
+.logo {
   display: flex;
   img {
     height: 80px;
   }
 }
 
-.content {
+.header {
   background-color: #000;
 }
 

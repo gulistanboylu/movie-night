@@ -1,29 +1,25 @@
-<template>
-  <div id="app">
-  
-    <div class="header">
-      <div class="logo">
-        <a href>
-          <img src="src/assets/images/logo.png" alt>
-        </a>
-        <nav>
-          <router-link class="nav-link" to="/">Home</router-link>
-          <router-link class="nav-link" to="/upcoming">Upcoming</router-link>
-          <router-link class="nav-link" to="/nowplaying">Now Playing</router-link>
-          <router-link class="nav-link" to="/toprated">Top Rated</router-link>
-        </nav>
-      </div>
-    </div>
-    <div class="app-container">
-      <router-view/>
-      <!-- <upcoming></upcoming>
-        <toprated></toprated> -->
-      <!-- <div class="container">
-            <movie v-for="movie in info" :key="movie.title" class="item" :movie="movie"></movie>
-        </div>-->
-    </div>
-  </div>
+<template lang='pug'>
+  div#app
+    div.header
+      div.logo
+        img(src="src/assets/images/logo.png")
+      nav
+        router-link.nav-link(to='/') Home
+        router-link.nav-link(to="/upcoming") Upcoming
+        router-link.nav-link(to="/nowplaying") Now Playing
+        router-link.nav-link(to="/toprated") Top Rated
+      
+    div.app-container
+      router-view
 </template>
+
+
+
+
+
+
+
+
 
 <script>
   import Upcoming from "./Upcoming.vue";
@@ -83,6 +79,7 @@
   
   .header {
     background-color: #000;
+    display: flex;
   }
   
   nav {

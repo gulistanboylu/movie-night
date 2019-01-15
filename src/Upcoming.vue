@@ -1,10 +1,8 @@
-<template>
-  <div>
-    <h1>Up Coming Movies</h1>
-    <div class="container">
-      <movie v-for="movie in info" :key="movie.title" class="item" :movie="movie"></movie>
-    </div>
-  </div>
+<template lang='pug'>
+  div
+    h1 Up Coming Movies
+    div.container
+      movie.item(v-for="movie in info" :key="movie.title" :movie="movie")
 </template>
 
 <script>

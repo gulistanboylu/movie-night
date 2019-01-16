@@ -1,15 +1,11 @@
-<template>
-    <div class="home">
-    <h1>Welcome to home!!!!!</h1>
-  </div>
+<template lang="pug">
+  div.home
+    h1 Welcome to home with pug
 </template>
-
+ 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

@@ -1,41 +1,30 @@
-<template>
-  <div>
-    <div>
-      <img :src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path">
-    </div>
-    <div class="movie-content">
-      <h3>{{ this.movie.title }}</h3>
-      <p>{{ truncate }}</p>
-      <h4>{{this.movie.release_date}}</h4>
-      <button type="button" class="btn" @click="showModal">More Info</button>
-      <modal v-show="isModalVisible" @close="closeModal">
-        <div slot="header">
-          <h2>{{ movie.title}}</h2>
-        </div>
-        <div slot="body" class="movie-details">
-          <img :src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path">
-          <div class="movie-detail-text">
-            <p>
-              <strong>Overview:</strong>
-              {{ movie.overview}}
-            </p>
-            <p>
-              <strong>Popularity:</strong>
-              {{ movie.popularity}}
-            </p>
-            <p>
-              <strong>Release Date:</strong>
-              {{ movie.release_date}}
-            </p>
-            <p>
-              <strong>Language:</strong>
-              {{ movie.original_language }}
-            </p>
-          </div>
-        </div>
-      </modal>
-    </div>
-  </div>
+<template lang='pug'>
+  div
+    div
+      img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+    div.movie-content
+      h3 {{ this.movie.title }}
+      p {{ truncate }}
+      h4 {{this.movie.release_date}}
+      button.btn(type="button" @click="showModal") More Info
+      modal(v-show="isModalVisible" @close="closeModal")
+        div(slot="header")
+          h2 {{ movie.title}}
+        div.movie-details(slot="body")
+          img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+          div.movie-detail-text
+            p 
+              strong Overview:  
+              | {{ movie.overview}}
+            p 
+              strong Popularity:  
+              | {{ movie.popularity}}
+            p
+              strong Date:
+              | {{movie.release_date}}
+            p 
+              strong Language:
+              | {{ movie.original_language }}
 </template>
 
 <script>

@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import Router from 'vue-router'
-import Upcoming from "./Upcoming.vue";
-import Toprated from "./Toprated.vue";
-import Home from "./Home.vue";
+import Upcoming from "./components/Upcoming.vue";
+import Toprated from "./components/Toprated.vue";
+import Home from "./components/Home.vue";
 
 
 Vue.use(Router);

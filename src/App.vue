@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Upcoming from "./components/Upcoming.vue";
-import Toprated from "./components/Toprated.vue";
+import Upcoming from "./view/Upcoming.vue";
+import Toprated from "./view/Toprated.vue";
 
 export default {
   components: {

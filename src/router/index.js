@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Upcoming from "../components/Upcoming.vue";
-import Toprated from "../components/Toprated.vue";
-import Home from "../components/Home.vue";
+import Upcoming from "../view/Upcoming.vue";
+import Toprated from "../view/Toprated.vue";
+import Home from "../view/Home.vue";
 
 Vue.use(Router);
 

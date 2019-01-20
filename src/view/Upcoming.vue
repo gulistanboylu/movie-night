@@ -2,7 +2,7 @@
   div
     h1 Up Coming Movies
     div.container
-      movie.item(v-for="movie in info" :key="movie.title" :movie="movie")
+      movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
 </template>
 
 <script>
@@ -17,15 +17,15 @@ export default {
   },
   data() {
     return {
-      info: null
-    };
+      movies: null
+     };
   },
   mounted() {
     this.getMovies();
   },
   methods: {
     async getMovies() {
-      this.info = await movieService.getUpcomingMovies();
+      this.movies = await movieService.getUpcomingMovies();
     }
   }
 };

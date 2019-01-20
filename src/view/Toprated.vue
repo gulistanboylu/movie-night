@@ -2,7 +2,7 @@
   div
     h1 Top Rated Movies
     div.container
-      movie.item(v-for="movie in info" :key="movie.title" :movie="movie")
+      movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      info: null
+      movies: null
     };
   },
   mounted() {
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     async getMovies() {
-      this.info = await movieService.getTopratedMovies();
+      this.movies = await movieService.getTopratedMovies();
     }
   }
 };

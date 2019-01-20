@@ -8,12 +8,11 @@
 <script>
 import Movie from "./Movie.vue";
 import Upcoming from "./Upcoming.vue";
-const axios = require("axios");
-axios.defaults.baseURL = "https://api.themoviedb.org/3";
+import movieService from "../services/movie.js";
 
 export default {
   components: {
-    movie: Movie,
+    movie: Movie
   },
   data() {
     return {
@@ -21,13 +20,12 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get("/movie/top_rated", {
-        params: {
-          api_key: "b4fa962034248325aeb93bb096e247de"
-        }
-      })
-      .then(response => (this.info = response.data.results));
+    this.getMovies();
+  },
+  methods: {
+    async getMovies() {
+      this.info = await movieService.getTopratedMovies();
+    }
   }
 };
 </script>

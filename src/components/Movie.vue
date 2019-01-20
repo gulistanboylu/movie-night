@@ -3,13 +3,13 @@
     div
       img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
     div.movie-content
-      h3 {{ this.movie.title }}
+      h3 {{ movie.title }}
       p {{ truncate }}
-      h4 {{this.movie.release_date}}
+      h4 {{ movie.release_date }}
       button.btn(type="button" @click="showModal") More Info
       modal(v-show="isModalVisible" @close="closeModal")
         div(slot="header")
-          h2 {{ movie.title}}
+          h2 {{ movie.title }}
         div.movie-details(slot="body")
           img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
           div.movie-detail-text

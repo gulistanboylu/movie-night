@@ -9,12 +9,8 @@ export default {
                     api_key: "b4fa962034248325aeb93bb096e247de"
                 }
             })
-            .then(function(response) {
-                return response.data.results;
-            })
-            .catch(function(error){
-                return error;
-            })
+            .then(response => (response.data.results))
+            .catch(error => (error))
     },
     getUpcomingMovies() {
         return axios
@@ -23,11 +19,7 @@ export default {
                     api_key: "b4fa962034248325aeb93bb096e247de"
                 }
             })
-            .then(function(response) {
-                return response.data.results;
-            })
-            .catch(function(error){
-                return error;
-            })
+            .then(response => (response.data.results))
+            .catch(error => (error));
     }
 }

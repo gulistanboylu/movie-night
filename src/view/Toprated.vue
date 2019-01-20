@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import Movie from "../components/Movie.vue";
-import Upcoming from "./Upcoming.vue";
-import movieService from "../services/movie.js";
+import Movie from '../components/Movie.vue';
+
+import movieService from '../services/movie';
 
 export default {
   components: {
-    movie: Movie
+    movie: Movie,
   },
   data() {
     return {
-      movies: null
+      movies: null,
     };
   },
   mounted() {
@@ -25,8 +25,8 @@ export default {
   methods: {
     async getMovies() {
       this.movies = await movieService.getTopratedMovies();
-    }
-  }
+    },
+  },
 };
 </script>
 

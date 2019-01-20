@@ -3,13 +3,19 @@
     <div class="modal-backdrop">
       <div class="modal">
         <header class="modal-header">
-          <slot name="header">This will be the Movie title</slot>
+          <slot name="header">
+            This will be the Movie
+          </slot>
         </header>
         <section class="modal-body">
-          <slot name="body">I'm the default body!</slot>
+          <slot name="body">
+            I'm the default body!
+          </slot>
         </section>
         <footer class="modal-footer">
-          <button type="button" class="btn-close" @click="close">Close</button>
+          <button type="button" class="btn-close" @click="close">
+            Close
+          </button>
         </footer>
       </div>
     </div>
@@ -18,10 +24,10 @@
 
 <script>
 export default {
-  name: "modal",
+  name: 'Modal',
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit('close');
     }
   }
 };

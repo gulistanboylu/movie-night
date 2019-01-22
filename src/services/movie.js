@@ -14,7 +14,14 @@ export default {
           api_key: moviedbKey,
         },
       })
-      .then(response => (response.data.results))
+      .then(function (response) {
+        response.data.results.map((item) => {
+          const movie = item;
+          movie.poster_path = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+          return movie;
+        });
+        return response.data.results;
+      })
       .catch(error => (error));
   },
   getUpcomingMovies() {

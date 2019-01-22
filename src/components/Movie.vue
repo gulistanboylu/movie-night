@@ -1,7 +1,7 @@
 <template lang='pug'>
   div
     div
-      img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+      img(:src="movie.poster_path")
     div.movie-content
       h3 {{ movie.title }}
       p {{ truncate }}
@@ -11,7 +11,7 @@
         div(slot="header")
           h2 {{ movie.title }}
         div.movie-details(slot="body")
-          img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+          img(:src="movie.poster_path")
           div.movie-detail-text
             p
               strong Overview:

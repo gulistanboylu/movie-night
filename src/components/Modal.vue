@@ -1,25 +1,13 @@
-<template>
-  <transition name="modal-fade">
-    <div class="modal-backdrop">
-      <div class="modal">
-        <header class="modal-header">
-          <slot name="header">
-            This will be the Movie
-          </slot>
-        </header>
-        <section class="modal-body">
-          <slot name="body">
-            I'm the default body!
-          </slot>
-        </section>
-        <footer class="modal-footer">
-          <button type="button" class="btn-close" @click="close">
-            Close
-          </button>
-        </footer>
-      </div>
-    </div>
-  </transition>
+<template lang='pug'>
+   transition(name="modal-fade")
+     div.modal-backdrop
+       div.modal
+         header.modal-header
+           slot(name="header") This will be the Movie
+         section.modal-body
+           slot(name="body") I'm the default body!
+         footer.modal-footer
+           button.btn-close(type="button" @click="close") Close
 </template>
 
 <script>
@@ -28,8 +16,8 @@ export default {
   methods: {
     close() {
       this.$emit('close');
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -97,4 +85,3 @@ export default {
   transition: opacity 0.5s ease;
 }
 </style>
-

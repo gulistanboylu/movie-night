@@ -2,7 +2,7 @@
   div.home
     h1 Welcome to home with pug
 </template>
- 
+
 <script>
 export default {};
 </script>

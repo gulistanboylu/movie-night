@@ -1,63 +1,64 @@
 <template lang='pug'>
   div
     div
-      img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+      img(:src="movie.poster_path")
     div.movie-content
-      h3 {{ this.movie.title }}
+      h3 {{ movie.title }}
       p {{ truncate }}
-      h4 {{this.movie.release_date}}
+      h4 {{ movie.release_date }}
       button.btn(type="button" @click="showModal") More Info
       modal(v-show="isModalVisible" @close="closeModal")
         div(slot="header")
-          h2 {{ movie.title}}
+          h2 {{ movie.title }}
         div.movie-details(slot="body")
-          img(:src="'https://image.tmdb.org/t/p/w200' + this.movie.poster_path")
+          img(:src="movie.poster_path")
           div.movie-detail-text
-            p 
-              strong Overview:  
+            p
+              strong Overview:
               | {{ movie.overview}}
-            p 
-              strong Popularity:  
+            p
+              strong Popularity:
               | {{ movie.popularity}}
             p
               strong Date:
               | {{movie.release_date}}
-            p 
+            p
               strong Language:
               | {{ movie.original_language }}
 </template>
 
 <script>
-import Modal from "./Modal.vue";
+import Modal from './Modal.vue';
+
 export default {
   components: {
-    modal: Modal
+    modal: Modal,
   },
   data() {
     return {
-      isModalVisible: false
+      isModalVisible: false,
     };
   },
-  props: ["movie"],
+  props: ['movie'],
   methods: {
     showModal() {
       this.isModalVisible = true;
     },
     closeModal() {
       this.isModalVisible = false;
-    }
+    },
   },
 
   computed: {
-    truncate: function() {
+    truncate() {
       return (
-        this.movie.overview
-          .split(" ")
+        `${this.movie.overview
+          .split(' ')
           .splice(0, 20)
-          .join(" ") + "..."
+          .join(' ')}...`
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

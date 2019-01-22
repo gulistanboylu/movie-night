@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 import Upcoming from '../view/Upcoming.vue';
 import Toprated from '../view/Toprated.vue';
+import Nowplaying from '../view/Nowplaying.vue';
 import Home from '../view/Home.vue';
 
 Vue.use(Router);
@@ -23,6 +24,11 @@ export default new Router({
       path: '/toprated',
       name: 'toprated',
       component: Toprated,
+    },
+    {
+      path: '/nowplaying',
+      name: 'nowplaying',
+      component: Nowplaying,
     },
   ],
 });

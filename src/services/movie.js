@@ -41,4 +41,21 @@ export default {
       })
       .catch(error => (error));
   },
+  getNowplayingMovies() {
+    return axios
+      .get('/movie/now_playing', {
+        params: {
+          api_key: moviedbKey,
+        },
+      })
+      .then(function (response) {
+        response.data.results.map((item) => {
+          const movie = item;
+          movie.poster_path = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+          return movie;
+        });
+        return response.data.results;
+      })
+      .catch(error => (error));
+  },
 };

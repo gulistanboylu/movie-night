@@ -11,6 +11,8 @@
 
     div.app-container
       router-view
+    footer
+      p Copyright © 2019 Gulistan Boylu
 </template>
 
 <script>
@@ -47,9 +49,13 @@ body {
   padding: 2em;
 }
 
-h1,
+h1
 h2 {
   font-weight: normal;
+}
+
+h1 {
+  font-size: 1.7em;
 }
 
 ul {
@@ -91,5 +97,13 @@ nav {
       color: #ed635d;
     }
   }
+}
+
+footer {
+  margin-top: 1em;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
 }
 </style>

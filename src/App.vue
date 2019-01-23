@@ -8,7 +8,7 @@
         router-link.nav-link(to="/upcoming") Upcoming
         router-link.nav-link(to="/nowplaying") Now Playing
         router-link.nav-link(to="/toprated") Top Rated
-
+    search
     div.app-container
       router-view
     footer
@@ -18,11 +18,13 @@
 <script>
 import Upcoming from './view/Upcoming.vue';
 import Toprated from './view/Toprated.vue';
+import Search from './components/Search.vue';
 
 export default {
   components: {
     upcoming: Upcoming,
     toprated: Toprated,
+    search: Search,
   },
   name: 'app',
 };

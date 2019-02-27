@@ -1,8 +1,7 @@
 {
-    "plugins": [
-      ["babel-plugin-root-import", {
-        "rootPathSuffix": "./src",
-        "rootPathPrefix": "@",
-      }]
-    ]
-  }
+  "presets": [
+    ["env", { "modules": false }],
+    "stage-3"
+  ],
+  "plugins": ["transform-regenerator"]
+}

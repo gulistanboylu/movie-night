@@ -6,6 +6,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'babel-polyfill';
 import Movie from '../components/Movie.vue';
 
 import movieService from '../services/movie';

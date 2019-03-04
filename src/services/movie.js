@@ -57,4 +57,23 @@ export default {
       })
       .catch(error => (error));
   },
+  searchMovies(message) {
+    return axios
+      .get('/search/movie', {
+        params: {
+          api_key: moviedbKey,
+          query: message,
+        },
+      })
+      .then((response) => {
+        response.data.results.map((item) => {
+          const movie = item;
+          movie.poster_path = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+          return movie;
+        });
+        console.log(response.data.results);
+        return response.data.results;
+      })
+      .catch(error => (error));
+  },
 };

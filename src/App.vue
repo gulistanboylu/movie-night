@@ -18,7 +18,7 @@
 <script>
 import Upcoming from './view/Upcoming.vue';
 import Toprated from './view/Toprated.vue';
-import Search from './components/Search.vue';
+import Search from './components/Searchbar.vue';
 
 export default {
   components: {

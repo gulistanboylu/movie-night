@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router/index';
+import 'babel-polyfill';
 
 
 // eslint-disable-next-line no-new

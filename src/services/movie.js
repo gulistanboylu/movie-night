@@ -71,7 +71,6 @@ export default {
           movie.poster_path = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
           return movie;
         });
-        console.log(response.data.results);
         return response.data.results;
       })
       .catch(error => (error));

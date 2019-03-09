@@ -1,22 +1,16 @@
 <template lang='pug'>
   div.search
-    input(v-model.lazy="message" placeholder="Seach for movie" v-on:keyup.enter="changed")
+    input(placeholder="Seach for movie" v-on:keyup.enter="searchMovies")
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 
 export default {
-  data() {
-    return {
-      message: '',
-    };
-  },
   methods: {
     ...mapActions(['search']),
-    changed(event) {
+    searchMovies(event) {
       this.search(event.target.value);
-      // this.$store.dispatch('search', event.target.value);
       this.$router.push('search');
     },
   },

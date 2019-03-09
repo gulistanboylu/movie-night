@@ -8,20 +8,26 @@
         router-link.nav-link(to="/upcoming") Upcoming
         router-link.nav-link(to="/nowplaying") Now Playing
         router-link.nav-link(to="/toprated") Top Rated
-
+    search
     div.app-container
       router-view
+    footer
+      p Copyright © 2019 Gulistan Boylu
 </template>
 
 <script>
 import Upcoming from './view/Upcoming.vue';
 import Toprated from './view/Toprated.vue';
+import Search from './components/Searchbar.vue';
+import { store } from './store/store';
 
 export default {
   components: {
     upcoming: Upcoming,
     toprated: Toprated,
+    search: Search,
   },
+  store,
   name: 'app',
 };
 </script>
@@ -47,9 +53,13 @@ body {
   padding: 2em;
 }
 
-h1,
+h1
 h2 {
   font-weight: normal;
+}
+
+h1 {
+  font-size: 1.7em;
 }
 
 ul {
@@ -91,5 +101,13 @@ nav {
       color: #ed635d;
     }
   }
+}
+
+footer {
+  margin-top: 1em;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
 }
 </style>

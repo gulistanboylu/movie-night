@@ -5,6 +5,7 @@ import Upcoming from '../view/Upcoming.vue';
 import Toprated from '../view/Toprated.vue';
 import Nowplaying from '../view/Nowplaying.vue';
 import Home from '../view/Home.vue';
+import Search from '../view/Search.vue';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/nowplaying',
       name: 'nowplaying',
       component: Nowplaying,
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search,
     },
   ],
 });

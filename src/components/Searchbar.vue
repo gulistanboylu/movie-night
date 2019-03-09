@@ -1,31 +1,23 @@
 <template lang='pug'>
   div.search
-    input(v-model.lazy="message" placeholder="Seach for movie" v-on:keyup.enter="searchMovies")
+    input(v-model.lazy="message" placeholder="Seach for movie" v-on:keyup.enter="changed")
 </template>
 
 <script>
-
-import movieService from '../services/movie';
+import { mapActions } from 'vuex';
 
 export default {
-  components: {
-    // movie: Movie
-  },
-  probs: ['message'],
   data() {
     return {
       message: '',
     };
   },
-  mounted() {
-    this.searchMovies();
-  },
   methods: {
-    async searchMovies() {
-      this.movies = await movieService.searchMovies(this.message);
-    },
-    search() {
-      console.log(this.message);
+    ...mapActions(['search']),
+    changed(event) {
+      this.search(event.target.value);
+      // this.$store.dispatch('search', event.target.value);
+      this.$router.push('search');
     },
   },
 };

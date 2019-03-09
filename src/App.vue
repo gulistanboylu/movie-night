@@ -19,6 +19,7 @@
 import Upcoming from './view/Upcoming.vue';
 import Toprated from './view/Toprated.vue';
 import Search from './components/Searchbar.vue';
+import { store } from './store/store';
 
 export default {
   components: {
@@ -26,6 +27,7 @@ export default {
     toprated: Toprated,
     search: Search,
   },
+  store,
   name: 'app',
 };
 </script>

@@ -6,11 +6,12 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const moviedbKey = 'b4fa962034248325aeb93bb096e247de';
 
 export default {
-  getTopratedMovies() {
+  getTopratedMovies(page) {
     return axios
       .get('/movie/top_rated', {
         params: {
           api_key: moviedbKey,
+          page,
         },
       })
       .then((response) => {
@@ -23,11 +24,12 @@ export default {
       })
       .catch(error => (error));
   },
-  getUpcomingMovies() {
+  getUpcomingMovies(page) {
     return axios
       .get('/movie/upcoming', {
         params: {
           api_key: moviedbKey,
+          page,
         },
       })
       .then((response) => {
@@ -40,11 +42,12 @@ export default {
       })
       .catch(error => (error));
   },
-  getNowplayingMovies() {
+  getNowplayingMovies(page) {
     return axios
       .get('/movie/now_playing', {
         params: {
           api_key: moviedbKey,
+          page,
         },
       })
       .then((response) => {

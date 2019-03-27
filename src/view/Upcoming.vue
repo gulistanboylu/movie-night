@@ -3,6 +3,8 @@
     h1 Up Coming Movies
     div.container
       movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
+      div.wrapper
+        button.btn(type="button" @click="More" class="more") More Movie
 </template>
 
 <script>
@@ -18,15 +20,27 @@ export default {
   },
   data() {
     return {
-      movies: null,
     };
   },
   mounted() {
     this.getMovies();
+    this.$store.commit('RESET_STATE');
+    this.$store.dispatch('upComingMovies');
+  },
+  computed: {
+    movies() {
+      return this.$store.state.movieList;
+    },
   },
   methods: {
     async getMovies() {
       this.movies = await movieService.getUpcomingMovies();
+    },
+    More() {
+      const page = this.$store.state.page + 1;
+      this.$store.commit('SET_PAGE', page);
+      this.$store.dispatch('upComingMovies');
+      this.getMovies(page);
     },
   },
 };

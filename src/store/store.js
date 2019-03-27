@@ -9,13 +9,21 @@ export const store = new Vuex.Store({
   state: {
     searchTerm: '',
     movieList: [],
+    page: 1,
   },
   mutations: {
     UPDATE_MOVIES: (state, movieList) => {
-      state.movieList = movieList;
+      state.movieList = state.movieList.concat(movieList);
     },
     CHANGE_SEARCH: (state, searchTerm) => {
       state.searchTerm = searchTerm;
+    },
+    SET_PAGE: (state, page) => {
+      state.page = page;
+    },
+    RESET_STATE: (state) => {
+      state.movieList = [];
+      state.page = 1;
     },
   },
   getters: {
@@ -27,6 +35,18 @@ export const store = new Vuex.Store({
       const result = await movieServices.searchMovies(searchTerm);
       context.commit('UPDATE_MOVIES', result);
       context.commit('CHANGE_SEARCH', searchTerm);
+    },
+    async topRatedMovies(context) {
+      const result = await movieServices.getTopratedMovies(context.state.page);
+      context.commit('UPDATE_MOVIES', result);
+    },
+    async nowPlayingMovies(context) {
+      const result = await movieServices.getNowplayingMovies(context.state.page);
+      context.commit('UPDATE_MOVIES', result);
+    },
+    async upComingMovies(context) {
+      const result = await movieServices.getUpcomingMovies(context.state.page);
+      context.commit('UPDATE_MOVIES', result);
     },
   },
 });

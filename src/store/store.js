@@ -40,5 +40,13 @@ export const store = new Vuex.Store({
       const result = await movieServices.getTopratedMovies(context.state.page);
       context.commit('UPDATE_MOVIES', result);
     },
+    async nowPlayingMovies(context) {
+      const result = await movieServices.getNowplayingMovies(context.state.page);
+      context.commit('UPDATE_MOVIES', result);
+    },
+    async upComingMovies(context) {
+      const result = await movieServices.getUpcomingMovies(context.state.page);
+      context.commit('UPDATE_MOVIES', result);
+    },
   },
 });

@@ -9,20 +9,19 @@
 
 <script>
 import Movie from '../components/Movie.vue';
-import LoadMore from '../components/LoadMore.vue';
 
 import movieService from '../services/movie';
 
 export default {
   components: {
     movie: Movie,
-    loadMore: LoadMore,
   },
   data() {
     return {
     };
   },
   mounted() {
+    // console.log(movieService);
     this.$store.commit('RESET_STATE');
     this.$store.dispatch('topRatedMovies');
   },

@@ -3,15 +3,12 @@
     h1 Up Coming Movies
     div.container
       movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
-      div.wrapper
+    div.wrapper
         button.btn(type="button" @click="More" class="more") More Movie
 </template>
 
 <script>
-// eslint-disable-next-line import/no-extraneous-dependencies
-import 'babel-polyfill';
 import Movie from '../components/Movie.vue';
-
 import movieService from '../services/movie';
 
 export default {
@@ -47,4 +44,20 @@ export default {
 </script>
 
 <style lang="scss">
+.more {
+    background: white;
+    color: #ed635d;
+    text-align: center;
+    margin: 50px 0 0 0;
+    border: none;
+    text-decoration: underline;
+    &:hover {
+      color: black;
+    }
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

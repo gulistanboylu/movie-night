@@ -4,7 +4,7 @@
 
 ## Preview
 
-**[View Live Preview](http://movienights.s3-website.eu-west-2.amazonaws.com/#//)**
+**[View Live Preview](http://movienights.s3-website.eu-west-2.amazonaws.com/#/)**
 
 ## Build Setup
 

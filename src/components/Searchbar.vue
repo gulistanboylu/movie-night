@@ -1,17 +1,24 @@
 <template lang='pug'>
   div.search
-    input(placeholder="Seach for movie" v-on:keyup.enter="searchMovies")
+    input(placeholder="Seach for movie" v-on:keyup.enter="searchMovies" v-model="searchTerm")
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 
 export default {
+  data() {
+    return {
+      searchTerm: '',
+    };
+  },
   methods: {
     ...mapActions(['search']),
     searchMovies(event) {
       this.search(event.target.value);
       this.$router.push('search');
+      this.searchTerm = '';
+      this.$store.commit('RESET_STATE');
     },
   },
 };

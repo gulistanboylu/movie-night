@@ -9,7 +9,6 @@
 
 <script>
 import Movie from '../components/Movie.vue';
-
 import movieService from '../services/movie';
 
 export default {
@@ -21,7 +20,6 @@ export default {
     };
   },
   mounted() {
-    // console.log(movieService);
     this.$store.commit('RESET_STATE');
     this.$store.dispatch('topRatedMovies');
   },

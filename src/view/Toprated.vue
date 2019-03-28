@@ -2,7 +2,7 @@
   div
     h1 Top Rated Movies
     div.container
-      movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
+      movie.item(v-for="movie in movies" :key="movie.id" :movie="movie")
     div.wrapper
       button.btn(type="button" @click="More" class="more") More Movie
 </template>

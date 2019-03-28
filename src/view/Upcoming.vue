@@ -2,7 +2,7 @@
   div
     h1 Up Coming Movies
     div.container
-      movie.item(v-for="movie in movies" :key="movie.title" :movie="movie")
+      movie.item(v-for="movie in movies" :key="movie.id" :movie="movie")
     div.wrapper
         button.btn(type="button" @click="More" class="more") More Movie
 </template>
@@ -20,7 +20,6 @@ export default {
     };
   },
   mounted() {
-    this.getMovies();
     this.$store.commit('RESET_STATE');
     this.$store.dispatch('upComingMovies');
   },

@@ -2,7 +2,7 @@
   div
     h1 Search Result is : {{ SEARCH_TERM }}
     div.container
-      movie.item(v-for="movie in MOVIES" :key="movie.title" :movie="movie")
+      movie.item(v-for="movie in MOVIES" :key="movie.id" :movie="movie")
 </template>
 <script>
 import { mapGetters } from 'vuex';

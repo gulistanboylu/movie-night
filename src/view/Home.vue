@@ -3,23 +3,22 @@
     h1 Top rated movies
     div.container
       movie.item(v-for="(movie,index) in topratedMovies"
-      :key="movie.title" :movie="movie" v-if="index < 4")
-      router-link.more(to="/toprated") Discover More
+      :key="movie.title + 'c'" :movie="movie" v-if="index < 4")
+      router-link.discover-more(to="/toprated") Discover More
     h1 Up coming movies
     div.container
       movie.item(v-for="(movie, index) in upcomingMovies"
-      :key="movie.title" :movie="movie" v-if="index < 2")
-      router-link.more(to="/upcoming") Discover More
+      :key="movie.title + 'a'" :movie="movie" v-if="index < 2")
+      router-link.discover-more(to="/upcoming") Discover More
     h1 Now playing movies
     div.container
       movie.item(v-for="(movie, index) in nowplayingMovies"
-      key="movie.title" :movie="movie" v-if="index < 2")
-      router-link.more(to="/nowplaying") Discover More
+      :key="movie.title + 'b'" :movie="movie" v-if="index < 2")
+      router-link.discover-more(to="/nowplaying") Discover More
 </template>
 
 <script>
 import Movie from '../components/Movie.vue';
-
 import movieService from '../services/movie';
 
 export default {
@@ -53,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
-.more {
+.discover-more {
   background-color: black;
   color: white;
   font-size: 0.9em;

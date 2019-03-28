@@ -2,6 +2,10 @@
 
 > A vue.js project with Movie Database API
 
+## Preview
+
+**[View Live Preview](http://movienights.s3-website.eu-west-2.amazonaws.com/#//)**
+
 ## Build Setup
 
 ``` bash

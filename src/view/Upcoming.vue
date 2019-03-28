@@ -9,7 +9,6 @@
 
 <script>
 import Movie from '../components/Movie.vue';
-import movieService from '../services/movie';
 
 export default {
   components: {
@@ -29,14 +28,10 @@ export default {
     },
   },
   methods: {
-    async getMovies() {
-      this.movies = await movieService.getUpcomingMovies();
-    },
     More() {
       const page = this.$store.state.page + 1;
       this.$store.commit('SET_PAGE', page);
       this.$store.dispatch('upComingMovies');
-      this.getMovies(page);
     },
   },
 };
